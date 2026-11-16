@@ -1,0 +1,41 @@
+{
+  "info": {
+    "name": "Kelompok 7 - Monitoring Service",
+    "description": "Koleksi Postman khusus untuk Kelompok 7 - Monitoring Service (Port 8107). Cukup drag & drop file ini ke aplikasi Postman.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8107",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Cek Health Monitoring Sendiri",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/health"
+      }
+    },
+    {
+      "name": "02. Periksa Status Seluruh 7 Service (/api/health/all)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/api/health/all"
+      }
+    }
+  ]
+}
